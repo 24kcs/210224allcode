@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <div id="demo">
+    <p>强哥喜欢渊哥</p>
+    <p>渊哥喜欢豪哥</p>
+    <p>豪哥喜欢峰哥</p>
+  </div>
+  <script type="text/javascript">
+    // 需求:通过文档碎片对象,把html标签容器中的内容更新
+    // 获取div这个DOM对象
+    const divObj = document.getElementById('demo')
+    // 创建文档碎片对象容器
+    const fragment = document.createDocumentFragment()
+    // 把div中所有的节点全都放在文档碎片对象容器中
+    var child;
+    while (child = divObj.firstChild) {
+      fragment.appendChild(child)
+    }
+
+    fragment.childNodes.forEach(item=>{
+      if (item.nodeType === 1) {
+        item.innerHTML = '哈哈,我又变帅了'
+      }
+    })
+    // 把文档碎片对象重新的添加到div中
+    divObj.appendChild(fragment)
+
+  </script>
+  <script type="text/javascript">
+    // 1.伪数组如何转成 真数组
+    // const pObjs = document.getElementsByTagName('p')
+    // 伪数组可以遍历
+    // var arr1 = [10,20,30]
+    // pObjs.forEach(item=>{
+    //   console.log(item)
+    // })
+
+    // const list1 = [...pObjs]
+    // console.log(Array.isArray(list1))
+    // const list2 = Array.from(pObjs)
+    // console.log(Array.isArray(list2))
+    // const list3 = Array.prototype.slice.call(pObjs)
+    // console.log(Array.isArray(list3))
+    // const list4 = [].slice.call(pObjs)
+    // console.log(Array.isArray(list4))
+
+
+    // 2.nodeType节点:页面中所有的东西都可以叫节点, 节点,元素,标签
+    // const nodeDiv = document.getElementById('demo')
+    // const nodeAttr = nodeDiv.getAttributeNode('id')
+    // const nodeTxt = nodeDiv.firstChild
+    // nodeType---1---标签  2-----属性  3-----文本
+    // console.log(nodeDiv.nodeType) // 1
+    // console.log(nodeAttr.nodeType) // 2
+    // console.log(nodeTxt.nodeType) // 3
+
+
+    // 3. Object.defineProperty()方法---为对象添加属性
+    // const person = {
+    //   firstName: '东方', // 姓氏
+    //   lastName: '不败' // 名字
+    // }
+    // console.dir(person)
+    // console.log(person.toString())
+    // 向某个对象中动态添加某个属性,并设置该属性值的配置
+    // Object.defineProperty(person, 'fullName', {
+    //   configurable: false, // 默认该属性不能被删除
+    //   enumerable: true, // 默认不能被枚举遍历
+    //   // value:'哈_哈', // 设置默认值
+    //   // writable:false, // 默认值不能修改
+    //   get() {
+    //     return person.firstName + '_' + person.lastName
+    //   },
+    //   set(val) {
+    //     const names = val.split('_')
+    //     person.firstName = names[0]
+    //     person.lastName = names[1]
+    //   }
+    // })
+    // 姓名
+    // person.fullName = person.firstName + '_' + person.lastName
+    // console.log(person.fullName)
+    // person.firstName = '诸葛'
+    // person.lastName = '孔明'
+    // console.log(person.fullName)
+    // person.fullName = '西门_豪哥'
+    // console.log(person.firstName)
+    // console.log(person.lastName)
+
+
+
+
+    // 4. Object.keys()方法
+
+    // console.log(Object.keys(person))
+    // const props = Object.keys(对象)
+    // for(var key in props){
+
+    // }
+    // 5. 对象.hasOwnProperty()方法,判断当前对象中是否包含这个属性
+    // console.log(person.hasOwnProperty('firstName')) // true
+    // console.log(person.hasOwnProperty('toString')) // false
+    // console.log(person.xxx())
+    // 6. 文档碎片对象模型----DoucmentFragment---(高效的批量处理多个节点)
+    // 需求:通过文档碎片对象,把html标签容器中的内容更新
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
